@@ -1,0 +1,40 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: lightseagreen;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__link {
+    display: block;
+    padding: 20px 30px;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    background-color: seagreen;
+}
+
+.main {
+    padding: 20px;
+}
+
+.db-table__cell {
+    padding: 5px 20px;
+}

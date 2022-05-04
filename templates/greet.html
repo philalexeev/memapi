@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}greet page{% endblock %}
+
+{% block content %}
+    {% if colored %}
+    <h1 style="color:tomato;">Flask Application</h1>
+    {% else %}
+    <h1>Flask Application</h1>
+    {% endif %}
+    <hr>
+    <h2>Hello, {{ name }}, welcome on a board! System os is {{ os_name }}</h2>
+
+    <h3>OS specs:</h3>
+    <ul>
+    {% for item in specs %}
+        <li>{{ item[0] }} - {{ item[1] }}</li>
+    {% endfor %}
+    </ul>
+
+    <img src="{{ url_for('static', filename='images/fifth-member.jpg')}}" alt="tallica fifth member">
+
+    {% include "includes.html" %}
+{% endblock %}

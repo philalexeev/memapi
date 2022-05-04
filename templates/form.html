@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}form page{% endblock %}
+
+{% block content %}
+    {{ super() }}
+    <form action="/processform" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="name">
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button type="submit">submit</button>
+    </form>
+{% endblock %}
