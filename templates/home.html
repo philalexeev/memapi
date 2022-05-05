@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}food app | home page{% endblock %}
+
+{% block content %}
+    <section class="new-day">
+        <div class="container">
+            <form class="new-day__form" action="#">
+                <label class="new-day__label" for="new-day">new day</label>
+                <input class="new-day__input" id="new-day" type="text">
+                <button class="btn new-day__submit-btn">add</button>
+            </form>
+            <hr>
+            <ul class="days">
+                <li class="day">
+                    <div class="day__header">january 28, 2020</div>
+                    <div class="day__body">
+                        <ul class="day__body-list">
+                            <li class="day__body-item">
+                                protein: <span class="day__body-item--protein">100</span>
+                            </li>
+                            <li class="day__body-item">
+                                carbohydates: <span class="day__body-item--carbohydates">100</span>
+                            </li>
+                            <li class="day__body-item">
+                                fat: <span class="day__body-item--fat">100</span>
+                            </li>
+                            <li class="day__body-item">
+                                calories: <span class="day__body-item--calories">100</span>
+                            </li>
+                        </ul>
+                        <button class="btn day__body-btn">view detail</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

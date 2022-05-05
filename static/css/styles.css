@@ -1,40 +1,151 @@
+:root {
+    --purple: darkslateblue;
+    --wheat: wheat;
+}
+
 *, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    font-family: "Rubik", sans-serif;
     box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+@media (min-width:768px) {
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 1000px;
+    }
+}
+
+hr {
+    width: 100%;
+    margin: 50px 0;
+    border: none;
+    border-top: 2px solid #eee;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--wheat);
+    background-color: var(--purple);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--wheat);
+    color: var(--purple);
 }
 
 .header {
-    background-color: lightseagreen;
+    background-color: var(--wheat);
 }
 
 .nav__list {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0;
     list-style: none;
 }
 
 .nav__link {
     display: block;
     padding: 20px 30px;
-    font-size: 30px;
-    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--purple);
     text-decoration: none;
 }
 
-.nav__link:hover {
-    background-color: seagreen;
+.nav__link:hover,
+.nav__link:focus {
+    color: #fff;
+    background-color: var(--purple);
 }
 
-.main {
-    padding: 20px;
+.new-day {
+    padding: 30px 0;
 }
 
-.db-table__cell {
-    padding: 5px 20px;
+.new-day__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.new-day__label {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.new-day__input {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+}
+
+.days {
+    list-style: none;
+}
+
+.day {
+    border: 2px solid var(--purple);
+}
+
+.day + .day {
+    margin-top: 50px;
+}
+
+.day__header {
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--wheat);
+    background-color: var(--purple);
+}
+
+.day__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.day__body-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.day__body-item {
+    font-size: 20px;
+}
+
+.day__body-item span {
+    padding: 0 5px;
+    font-weight: 700;
+    color: var(--wheat);
+    background-color: var(--purple);
 }
