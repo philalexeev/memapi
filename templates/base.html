@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
     <header class="header">
         <div class="container">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">add food item</a>
-                    </li>
-                </ul>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item">
+                            home
+                        </a>
+                        <a class="navbar-item">
+                            add food item
+                        </a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
