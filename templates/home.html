@@ -3,18 +3,34 @@
 {% block title %}food app | home page{% endblock %}
 
 {% block content %}
-<section class="main">
-    <div class="container">
-        <form action="#">
-            <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
+        <form class="form" action="#" method="#">
+            <div class="form__field">
+                <label class="form__label">new day</label>
+                <input class="form__input" type="text" placeholder="text input">
             </div>
-            <button class="button is-link">Submit</button>
+            <button class="btn form__btn" type="submit">add</button>
         </form>
         <hr>
-    </div>
-</section>
+        <ul class="panels">
+            <li class="panel">
+                <h2 class="panel__heading">march 20, 1967</h2>
+                <div class="panel__body">
+                    <ul class="panel__details">
+                        <li class="panel__detail">
+                            protein: <span>100</span>
+                        </li>
+                        <li class="panel__detail">
+                            carbohydrates: <span>100</span>
+                        </li>
+                        <li class="panel__detail">
+                            fat: <span>100</span>
+                        </li>
+                        <li class="panel__detail">
+                            calories: <span>100</span>
+                        </li>
+                    </ul>
+                    <button class="btn panel__details-btn">view details</button>
+                </div>
+            </li>
+        </ul>
 {% endblock %}

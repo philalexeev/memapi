@@ -9,3 +9,7 @@ def home():
 @app.route("/day")
 def day():
     return render_template("day.html")
+
+@app.route("/addfood")
+def addfood():
+    return render_template("addfood.html")
