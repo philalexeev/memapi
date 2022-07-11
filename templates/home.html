@@ -2,35 +2,54 @@
 
 {% block title %}food app | home page{% endblock %}
 
+{% block header %}
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active">home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/addfood" class="nav__link">add food item</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+{% endblock %}
+
 {% block content %}
-        <form class="form" action="#" method="#">
-            <div class="form__field">
-                <label class="form__label">new day</label>
-                <input class="form__input" type="text" placeholder="text input">
+    <form class="form" action="/" method="POST">
+        <div class="form__field">
+            <label class="form__label">new day</label>
+            <input class="form__input" type="date" name="date">
+        </div>
+        <button class="btn form__btn" type="submit">add</button>
+    </form>
+    <hr>
+    <ul class="panels">
+        {% for pretty_date, short_date in results %}
+        <li class="panel">
+            <h2 class="panel__heading">{{ pretty_date }}</h2>
+            <div class="panel__body">
+                <ul class="panel__details">
+                    <li class="panel__detail">
+                        protein: <span>100</span>
+                    </li>
+                    <li class="panel__detail">
+                        carbohydrates: <span>100</span>
+                    </li>
+                    <li class="panel__detail">
+                        fat: <span>100</span>
+                    </li>
+                    <li class="panel__detail">
+                        calories: <span>100</span>
+                    </li>
+                </ul>
+                <a class="btn panel__details-btn" href="{{ url_for('day', date=short_date) }}">view details</a>
             </div>
-            <button class="btn form__btn" type="submit">add</button>
-        </form>
-        <hr>
-        <ul class="panels">
-            <li class="panel">
-                <h2 class="panel__heading">march 20, 1967</h2>
-                <div class="panel__body">
-                    <ul class="panel__details">
-                        <li class="panel__detail">
-                            protein: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            carbohydrates: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            fat: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            calories: <span>100</span>
-                        </li>
-                    </ul>
-                    <button class="btn panel__details-btn">view details</button>
-                </div>
-            </li>
-        </ul>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

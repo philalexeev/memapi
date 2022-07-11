@@ -2,18 +2,34 @@
 
 {% block title %}food app | day detail{% endblock %}
 
+{% block header %}
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/addfood" class="nav__link">add food item</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+{% endblock %}
+
 {% block content %}
     <div class="panel-day">
-        <h1 class="panel__heading">march 20, 1967</h1>
+        <h1 class="panel__heading">{{ date }}</h1>
         <div class="panel-day__body">
-            <form class="form" action="#" method="#">
+            <form class="form" action="{{ url_for('day', date='20220512') }}" method="POST">
                 <div class="form__field">
                     <label class="form__label">choose food</label>
-                    <select class="form__input">
-                        <option class="form__option" value="pizza">pizza</option>
-                        <option class="form__option" value="burger">burger</option>
-                        <option class="form__option" value="meat">meat</option>
-                        <option class="form__option" value="chocolate">chocolate</option>
+                    <select class="form__input" name="food-select">
+                        {% for food in food_list %}
+                            <option class="form__option" value="{{ food['id']}}">{{ food['name'] }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <button class="btn form__btn" type="submit">add</button>
@@ -23,72 +39,40 @@
                 <span class="panel__title">total</span>
                 <ul class="panel__details">
                     <li class="panel__detail">
-                        protein: <span>100</span>
+                        protein: <span>{{ total["protein"] }}</span>
                     </li>
                     <li class="panel__detail">
-                        carbohydrates: <span>100</span>
+                        carbohydrates: <span>{{ total["carbohydrates"] }}</span>
                     </li>
                     <li class="panel__detail">
-                        fat: <span>100</span>
+                        fat: <span>{{ total["fat"] }}</span>
                     </li>
                     <li class="panel__detail">
-                        calories: <span>100</span>
+                        calories: <span>{{ total["calories"] }}</span>
                     </li>
                 </ul>
             </div>
             <hr>
             <ul class="day-foods">
-                <li class="panel__body panel__body--unbordered">
-                    <span class="panel__title">pizza</span>
-                    <ul class="panel__details">
-                        <li class="panel__detail">
-                            protein: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            carbohydrates: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            fat: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            calories: <span>100</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="panel__body panel__body--unbordered">
-                    <span class="panel__title">pizza</span>
-                    <ul class="panel__details">
-                        <li class="panel__detail">
-                            protein: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            carbohydrates: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            fat: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            calories: <span>100</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="panel__body panel__body--unbordered">
-                    <span class="panel__title">pizza</span>
-                    <ul class="panel__details">
-                        <li class="panel__detail">
-                            protein: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            carbohydrates: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            fat: <span>100</span>
-                        </li>
-                        <li class="panel__detail">
-                            calories: <span>100</span>
-                        </li>
-                    </ul>
-                </li>
+                {% for food in log_results %}
+                    <li class="panel__body panel__body--unbordered">
+                        <span class="panel__title">{{ food.name }}</span>
+                        <ul class="panel__details">
+                            <li class="panel__detail">
+                                protein: <span>{{ food.protein }}</span>
+                            </li>
+                            <li class="panel__detail">
+                                carbohydrates: <span>{{ food.carbohydrates }}</span>
+                            </li>
+                            <li class="panel__detail">
+                                fat: <span>{{ food.fat }}</span>
+                            </li>
+                            <li class="panel__detail">
+                                calories: <span>{{ food.calories }}</span>
+                            </li>
+                        </ul>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

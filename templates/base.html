@@ -10,20 +10,7 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a class="nav__link nav__link--active">home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">add food item</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    {% block header %}{% endblock %}
     <main class="main">
         <div class="container">
             {% block content %}
