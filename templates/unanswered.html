@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}faq app | home page{% endblock %}
+{% block title %}faq app | unanswered questions{% endblock %}
 
 {% block header %}
     <header class="header">
@@ -48,15 +48,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="answered">
-        <h1 class="answered__heading heading">Answered questions</h1>
-        <ul class="answered__list">
+    <div class="unanswered">
+        <h1 class="unanswered__heading heading">Unanswered questions</h1>
+        <ul class="unanswered__list">
             {% for question in questions %}
-                <li class="answered__item">
-                    <a href="/question/{{ question['id'] }}" class="answered__link">
-                        <h2 class="answered__item-heading">{{ question['question_text'] }}</h2>
-                        <p class="answered__item-questioner">Asked by: {{ question['asker'] }}</p>
-                        <p class="answered__item-answerer">Answered by: {{ question['expert'] }}</p>
+                <li class="unanswered__item">
+                    <a href="/answer/{{ question['id'] }}" class="unanswered__link">
+                        <h2 class="unanswered__item-heading">{{ question["question_text"]}}</h2>
+                        <p class="unanswered__item-questioner">Asked by: {{ question["name"] }}</p>
                     </a>
                 </li>
             {% endfor %}

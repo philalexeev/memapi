@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}faq app | home page{% endblock %}
+{% block title %}faq app | login{% endblock %}
 
 {% block header %}
     <header class="header">
@@ -48,18 +48,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="answered">
-        <h1 class="answered__heading heading">Answered questions</h1>
-        <ul class="answered__list">
-            {% for question in questions %}
-                <li class="answered__item">
-                    <a href="/question/{{ question['id'] }}" class="answered__link">
-                        <h2 class="answered__item-heading">{{ question['question_text'] }}</h2>
-                        <p class="answered__item-questioner">Asked by: {{ question['asker'] }}</p>
-                        <p class="answered__item-answerer">Answered by: {{ question['expert'] }}</p>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1 class="heading">Login</h1>
+    <form action="/login" class="form form--login" method="post">
+        <div class="form__group">
+            <label class="form__text-label" for="login-name">Name</label>
+            <input class="form__text-input" type="text" id="login-name" name="username">
+        </div>
+        <div class="form__group">
+            <label class="form__text-label" for="login-pass">Password</label>
+            <input class="form__text-input" type="password" id="login-pass" name="password">
+        </div>
+        <button class="btn form__btn" type="submit">Login</button>
+    </form>
 {% endblock %}

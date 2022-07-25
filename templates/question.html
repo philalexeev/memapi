@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}faq app | home page{% endblock %}
+{% block title %}faq app | question{% endblock %}
 
 {% block header %}
     <header class="header">
@@ -48,18 +48,12 @@
 {% endblock %}
 
 {% block content %}
-    <div class="answered">
-        <h1 class="answered__heading heading">Answered questions</h1>
-        <ul class="answered__list">
-            {% for question in questions %}
-                <li class="answered__item">
-                    <a href="/question/{{ question['id'] }}" class="answered__link">
-                        <h2 class="answered__item-heading">{{ question['question_text'] }}</h2>
-                        <p class="answered__item-questioner">Asked by: {{ question['asker'] }}</p>
-                        <p class="answered__item-answerer">Answered by: {{ question['expert'] }}</p>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="question">
+        <h1 class="question__heading">{{ question['question_text'] }}</h1>
+        <hr>
+        <p class="question__answer">{{ question['answer_text'] }}</p>
+        <hr>
+        <p class="question__questioner">Asked by: {{ question['asker'] }}</p>
+        <p class="question__answerer">Answered by: {{ question['expert'] }}</p>
     </div>
 {% endblock %}

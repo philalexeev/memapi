@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}faq app | home page{% endblock %}
+{% block title %}faq app | register{% endblock %}
 
 {% block header %}
     <header class="header">
@@ -48,18 +48,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="answered">
-        <h1 class="answered__heading heading">Answered questions</h1>
-        <ul class="answered__list">
-            {% for question in questions %}
-                <li class="answered__item">
-                    <a href="/question/{{ question['id'] }}" class="answered__link">
-                        <h2 class="answered__item-heading">{{ question['question_text'] }}</h2>
-                        <p class="answered__item-questioner">Asked by: {{ question['asker'] }}</p>
-                        <p class="answered__item-answerer">Answered by: {{ question['expert'] }}</p>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1 class="heading">Register</h1>
+    <form class="form form--register" method="post" action="/register">
+        <div class="form__group form__group--username">
+            <label class="form__text-label form__text-label--username" for="register-name">Name</label>
+            {% if error %}
+                <strong style="color:#f00;" class="form__error">{{ error }}</strong>
+            {% endif %}
+            <input class="form__text-input form__text-input--username" type="text" id="register-name" name="username">
+        </div>
+        <div class="form__group">
+            <label class="form__text-label" for="register-pass">Password</label>
+            <input class="form__text-input" type="password" id="register-pass" name="password" required>
+        </div>
+        <button class="btn form__btn" type="submit">Register</button>
+    </form>
 {% endblock %}
